@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Expense Tracker</h1>
+      <p>Track spending, set budgets, and review trends.</p>
+    </header>
+
+    <section class="card">
+      <h2 id="form-title">Add Expense</h2>
+      <form id="expense-form">
+        <div class="form-grid">
+          <div class="row">
+            <label for="date">Date</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+          <div class="row">
+            <label for="amount">Amount (Rs)</label>
+            <input id="amount" name="amount" type="number" min="0.01" step="0.01" required />
+          </div>
+          <div class="row">
+            <label for="category">Category</label>
+            <select id="category" name="category" required>
+              <option value="Food">Food</option>
+              <option value="Transport">Transport</option>
+              <option value="Shopping">Shopping</option>
+              <option value="Bills">Bills</option>
+              <option value="Health">Health</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Education">Education</option>
+              <option value="Subscriptions">Subscriptions</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="row">
+            <label for="note">Note</label>
+            <input id="note" name="note" type="text" maxlength="120" placeholder="Optional" />
+          </div>
+        </div>
+        <div class="action-row">
+          <button id="submit-btn" type="submit">Add Expense</button>
+          <button id="cancel-edit" type="button" class="secondary hidden">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card summary">
+      <h2>Summary</h2>
+      <div class="summary-grid">
+        <p><strong>Today:</strong> <span id="today-total">Rs 0.00</span></p>
+        <p><strong>This Month:</strong> <span id="month-total">Rs 0.00</span></p>
+        <p><strong>Transactions:</strong> <span id="transaction-count">0</span></p>
+        <p><strong>Average/Day:</strong> <span id="avg-day">Rs 0.00</span></p>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-head">
+          <strong>Monthly Budget:</strong>
+          <span id="budget-status">Not set</span>
+        </div>
+        <div class="progress-track" aria-label="Monthly budget usage">
+          <div id="budget-bar" class="progress-bar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Budget Settings</h2>
+      <form id="budget-form" class="budget-form">
+        <div class="row">
+          <label for="monthly-budget">Monthly Budget (Rs)</label>
+          <input id="monthly-budget" type="number" min="0" step="0.01" placeholder="e.g. 1500" />
+        </div>
+        <div class="action-row">
+          <button type="submit">Save Budget</button>
+          <button id="clear-budget" type="button" class="secondary">Clear Budget</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Category Breakdown (Current Month)</h2>
+      <ul id="category-breakdown" class="breakdown-list"></ul>
+      <p id="breakdown-empty" class="muted">No category data yet.</p>
+    </section>
+
+    <section class="card">
+      <h2>Expenses</h2>
+      <div class="toolbar">
+        <input id="filter-date" type="date" />
+        <input id="search-note" type="text" placeholder="Search notes..." />
+        <select id="sort-by">
+          <option value="date_desc">Date (Newest)</option>
+          <option value="date_asc">Date (Oldest)</option>
+          <option value="amount_desc">Amount (High to Low)</option>
+          <option value="amount_asc">Amount (Low to High)</option>
+        </select>
+        <button id="clear-filter" type="button" class="secondary">Clear</button>
+      </div>
+
+      <div class="toolbar">
+        <button id="export-csv" type="button" class="secondary">Export CSV</button>
+        <label for="import-csv" class="btn-like">Import CSV</label>
+        <input id="import-csv" type="file" accept=".csv,text/csv" />
+      </div>
+
+      <ul id="expense-list"></ul>
+      <p id="empty-state" class="muted">No expenses found.</p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,241 @@
+﻿:root {
+  --bg: #eef3f8;
+  --bg-2: #d9e4ef;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #5b6472;
+  --accent: #0f766e;
+  --accent-hover: #115e59;
+  --danger: #b91c1c;
+  --border: #d1d9e4;
+  --secondary: #334155;
+  --warning: #b45309;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 0%, #f7fafc 0%, transparent 35%),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 45%);
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 16px 42px;
+}
+
+header h1 {
+  margin: 0 0 4px;
+}
+
+header p {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.row {
+  display: grid;
+  gap: 5px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+input,
+select,
+button {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 0.96rem;
+  padding: 10px;
+}
+
+button,
+.btn-like {
+  cursor: pointer;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover,
+.btn-like:hover {
+  background: var(--accent-hover);
+}
+
+.secondary {
+  background: var(--secondary);
+}
+
+.delete-btn {
+  background: var(--danger);
+}
+
+.edit-btn {
+  background: var(--warning);
+}
+
+.action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 6px;
+}
+
+.summary p {
+  margin: 6px 0;
+}
+
+.progress-wrap {
+  margin-top: 8px;
+}
+
+.progress-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 0.92rem;
+}
+
+.progress-track {
+  height: 12px;
+  background: #e6edf4;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #1d9a90, #0f766e);
+  transition: width 200ms ease;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.toolbar input,
+.toolbar select,
+.toolbar button,
+.toolbar .btn-like {
+  min-height: 40px;
+}
+
+#import-csv {
+  display: none;
+}
+
+#expense-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.expense-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.expense-main {
+  display: grid;
+  gap: 3px;
+}
+
+.expense-meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.item-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.item-actions button {
+  padding: 8px 10px;
+}
+
+.breakdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.breakdown-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .expense-item {
+    grid-template-columns: 1fr;
+  }
+
+  .item-actions {
+    justify-content: flex-start;
+  }
+}
