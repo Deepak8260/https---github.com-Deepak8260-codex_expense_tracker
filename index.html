@@ -8,9 +8,10 @@
 </head>
 <body>
   <main class="app">
-    <header>
+    <header class="hero">
+      <p class="eyebrow">Personal Finance</p>
       <h1>Expense Tracker</h1>
-      <p>Track spending, set budgets, and review trends.</p>
+      <p class="hero-subtitle">Track spending, set monthly budgets, and review trends in one dashboard.</p>
     </header>
 
     <section class="card">
@@ -106,7 +107,7 @@
 
       <div class="toolbar">
         <button id="export-csv" type="button" class="secondary">Export CSV</button>
-        <label for="import-csv" class="btn-like">Import CSV</label>
+        <label for="import-csv" class="btn-like secondary">Import CSV</label>
         <input id="import-csv" type="file" accept=".csv,text/csv" />
       </div>
 
@@ -118,4 +119,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
